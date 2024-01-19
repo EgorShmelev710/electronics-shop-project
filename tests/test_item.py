@@ -1,6 +1,7 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 import pytest
 from src.item import Item
+from src.phone import Phone
 
 
 @pytest.fixture
@@ -38,3 +39,10 @@ def test_string_to_number():
 def test__dunder_methods__(coll):
     assert repr(coll) == "Item('Смартфон', 10000, 20)"
     assert str(coll) == 'Смартфон'
+
+def test__add__(coll):
+    phone1 = Phone("iPhone 14", 120_000, 5, 2)
+
+    assert coll + phone1 == 25
+    assert phone1 + phone1 == 10
+    #assert coll + 3 == ValueError: Складывать можно только объекты Item и дочерние от них.
