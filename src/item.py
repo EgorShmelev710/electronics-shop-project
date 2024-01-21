@@ -22,6 +22,8 @@ class Item:
 
         Item.all.append(self)
 
+        super().__init__()
+
     def __add__(self, other):
         if not isinstance(other, self.__class__):
             raise ValueError('Складывать можно только объекты Item и дочерние от них.')
